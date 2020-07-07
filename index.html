@@ -1,0 +1,55 @@
+﻿
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Leaflet Test</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" href="src/img/yusufalbeni.png">
+  <link rel="stylesheet" href="src/css/leaflet.css">
+  <script src="src/js/leaflet.js"></script>
+</head>
+
+<body>
+
+  <div id="map" style="position: absolute; top: 0; right: 0; bottom: 0; left: 0; height:100vh;"></div>
+
+  <script>
+    var map = L.map('map', {
+      zoomControl: false
+    }).setView([41.099864, 28.999999], 10, );
+    
+    var layer1 = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}')
+
+    var baseMaps = {"Uydu": layer1}; layer1.addTo(map);
+
+    map.locate({setView: true});
+
+    function onLocationFound(e) {
+    var radius = e.accuracy;
+
+    L.marker(e.latlng).addTo(map)
+        .bindPopup("Konumunuz!").openPopup();
+
+    L.circle(e.latlng, radius).addTo(map);
+}
+
+map.on('locationfound', onLocationFound);
+    
+    var north = L.control({
+      position: "bottomright"
+    });
+    north.onAdd = function(map) {
+      var div = L.DomUtil.create("div", "info legend");
+      div.innerHTML = '<a href="https://yusufalbeni.me"target="_blank"><img src="src/img/yusufalbeni.png" style="height: 32px;">';
+      return div;
+    }
+    north.addTo(map);
+
+  </script>
+
+</body>
+
+</html>
