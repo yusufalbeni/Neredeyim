@@ -1,4 +1,4 @@
-# SeyahaT Süresi Haritası!
+# Seyahat Süresi Haritası!
 
 Bulunduğunuz konumdan seçeceğiniz konuma seyahat sürelerini gösteren web uygulaması.
 
