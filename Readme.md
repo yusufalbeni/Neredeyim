@@ -1,5 +1,5 @@
-# Neredeyim!
+# SeyahaT Süresi Haritası!
 
-Bulunduğunuz konumu ve çevrenizin uydu görüntüsünü görebileceğiniz bir web uygulaması.
+Bulunduğunuz konumdan seçeceğiniz konuma seyahat sürelerini gösteren web uygulaması.
 
 https://yusufalbeni.github.io/Neredeyim/
